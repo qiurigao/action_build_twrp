@@ -1,4 +1,4 @@
-name: rec-building
+name: Make Recovery
 
 on:
   watch:
@@ -103,7 +103,7 @@ jobs:
       run: |
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
-        tree device
+        tree ./device
         export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch ${{ steps.var.outputs.device_code }}-eng 
