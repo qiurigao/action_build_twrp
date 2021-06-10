@@ -9,6 +9,7 @@
   "dt_remote": "github",
   "dt_path": "device/xiaomi/lx04",
   "device_code": "lx04",
+  "use_repair_manifest": false,
   "fix_product": true,
   "fix_misscom": true,
   "fix_busybox": false,
