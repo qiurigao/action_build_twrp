@@ -33,6 +33,7 @@ jobs:
         echo "::set-output name=dt_branch::$(jq -r '.dt_branch' config.json)"
         echo "::set-output name=dt_path::$(jq -r '.dt_path' config.json)"
         echo "::set-output name=device_code::$(jq -r '.device_code' config.json)"
+        echo "::set-output name=use_repair_manifest::$(jq -r '.use_repair_manifest' config.json)"
         echo "::set-output name=fix_product::$(jq -r '.fix_product' config.json)"
         echo "::set-output name=fix_misscom::$(jq -r '.fix_misscom' config.json)"
         echo "::set-output name=fix_busybox::$(jq -r '.fix_busybox' config.json)"
