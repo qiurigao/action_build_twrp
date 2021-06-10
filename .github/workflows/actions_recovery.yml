@@ -109,7 +109,7 @@ jobs:
         tree device
         export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
-        lunch omni_${{ steps.var.outputs.device_code }}-eng 
+        lunch ${{ steps.var.outputs.device_code }}-eng 
         mka recoveryimage -j$(nproc --all)
         
     - name: Upload REC
