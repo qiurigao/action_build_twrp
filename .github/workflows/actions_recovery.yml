@@ -19,9 +19,11 @@ jobs:
         sudo rm -rf /usr/share/dotnet /etc/mysql /etc/php /etc/sudo apt/sources.list.d
         sudo apt -y purge azure-cli ghc* zulu* hhvm llvm* firefox google* dotnet* powershell openjdk* mysql* php*
         sudo apt -y autoremove --purge
+        sudo apt -y autoclean
         sudo apt clean
+        sudo echo 3 > /proc/sys/vm/drop_caches
       
-    - name: Get variables
+    - name: Set variables
       run: |
         echo "::set-output name=twrp_url::$(jq -r '.twrp_url' config.json)"
         echo "::set-output name=twrp_branch::$(jq -r '.twrp_branch' config.json)"
