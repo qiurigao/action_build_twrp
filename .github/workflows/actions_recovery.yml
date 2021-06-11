@@ -22,7 +22,6 @@ jobs:
         sudo apt -y autoremove --purge
         sudo apt -y autoclean
         sudo apt clean
-        sudo echo 3 > /proc/sys/vm/drop_caches
       
     - name: Set variables
       run: |
