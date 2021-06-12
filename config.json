@@ -10,7 +10,6 @@
   "dt_path": "device/xiaomi/dipper",
   "device_code": "dipper",
   "use_omin_head": true,
-  "fix_frameworks": true,
   "use_repair_manifest": false,
   "fix_product": false,
   "fix_misscom": false,
