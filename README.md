@@ -1,4 +1,4 @@
-<h1 align="center"> 利用Github Actions编译REC</h1>
+<h1 align="center"> 利用 Github Actions 编译 TWRP Recovery</h1>
 
 ---
 
