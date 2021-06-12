@@ -16,10 +16,10 @@
 
 | 名称               | 类型    | 描述                                                         |
 | ------------------ | ------- | ------------------------------------------------------------ |
-| `twrp_url`     | String  | Recovery Manifest地址                                        |
-| `twrp_branch`  | String  | Recovery Manifest分支                                        |
-| `git_username` | String  | Git的用户名                                            |
-| `git_email`    | String  | Git的邮箱<sub>（Github可使用`Github ID + Github用户名@users.noreply.github.com`）</sub> |
+| `twrp_url`     | String  | 编译使用的源码地址                                        |
+| `twrp_branch`  | String  | 编译使用的源码分支                                        |
+| `git_username` | String  | Git 的用户名                                            |
+| `git_email`    | String  | Git 的邮箱<sub>（Github 可使用`Github ID + Github用户名@users.noreply.github.com`）</sub> |
 | `use_own_dt`   | Boolean | 指示是否使用个人设备树<sub>（此项为 `true` 后以下三项起效）</sub>  |
 | `dt_url`           | String  | 您使用的设备树的地址<sub>（格式: `USER/REPO` ）</sub>                |
 | `dt_branch`    | String  | 您使用的设备树的分支                                         |
