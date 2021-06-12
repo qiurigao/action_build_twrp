@@ -68,10 +68,6 @@ jobs:
         mkdir .repo/local_manifests
       id: pwd
       
-    - name: Fix frameworks hwui_defaults
-      if: steps.var.outputs.fix_frameworks == 'true'
-      run: export ALLOW_MISSING_DEPENDENCIES=true
-      
     - name: Fix the bug of missing common
       if: steps.var.outputs.use_repair_manifest == 'true' && steps.var.outputs.fix_misscom == 'true'
       run: cp repair/omni-9.0/qcom.xml workspace/.repo/local_manifests/
@@ -93,7 +89,7 @@ jobs:
       run: |
         PATH=~/bin:$PATH
         cd workspace
-        repo sync -j32 -f --force-sync
+        repo sync -j$(nproc --all) -f --force-sync
         ls -al
         
     - name: Fix cannot locate product
@@ -104,6 +100,10 @@ jobs:
         sed -i 's!device_code!${{ steps.var.outputs.device_code }}!g' ${{ steps.pwd.outputs.pwd }}/../build/core/${{ steps.var.outputs.fix_branch }}/product_config.mk
         cp ${{ steps.pwd.outputs.pwd }}/../build/core/${{ steps.var.outputs.fix_branch }}/product_config.mk ${{ steps.pwd.outputs.pwd }}/build/core/product_config.mk
         
+    - name: Fix frameworks hwui_defaults
+      if: steps.var.outputs.fix_frameworks == 'true'
+      run: export ALLOW_MISSING_DEPENDENCIES=true
+      
     - name: Start Building
       run: |
         PATH=~/bin:$PATH
