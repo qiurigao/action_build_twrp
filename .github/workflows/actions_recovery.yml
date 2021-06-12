@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout
+    - name: Check Out
       uses: actions/checkout@main
       
     - name: Clean Up
