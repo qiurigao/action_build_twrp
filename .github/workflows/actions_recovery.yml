@@ -40,7 +40,6 @@ jobs:
         echo "::set-output name=fix_misscom::$(jq -r '.fix_misscom' config.json)"
         echo "::set-output name=fix_busybox::$(jq -r '.fix_busybox' config.json)"
         echo "::set-output name=fix_branch::$(jq -r '.fix_branch' config.json)"
-        echo "::set-output name=fix_frameworks::$(jq -r '.fix_frameworks' config.json)"
         echo "::set-output name=use_omin_head::$(jq -r '.use_omin_head' config.json)"
         echo "::set-output name=date::$(date +%F)"
       id: var
@@ -100,10 +99,6 @@ jobs:
         rm -rf product_config.mk
         sed -i 's!device_code!${{ steps.var.outputs.device_code }}!g' ${{ steps.pwd.outputs.pwd }}/../build/core/${{ steps.var.outputs.fix_branch }}/product_config.mk
         cp ${{ steps.pwd.outputs.pwd }}/../build/core/${{ steps.var.outputs.fix_branch }}/product_config.mk ${{ steps.pwd.outputs.pwd }}/build/core/product_config.mk
-        
-    - name: Fix frameworks hwui_defaults
-      if: steps.var.outputs.fix_frameworks == 'true'
-      run: export ALLOW_MISSING_DEPENDENCIES=true
       
     - name: Start Building (Normal Mode)
       if: steps.var.outputs.use_omin_head == 'false'
@@ -111,6 +106,7 @@ jobs:
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
         tree ./device
+        export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch ${{ steps.var.outputs.device_code }}-eng 
         make clean
@@ -122,6 +118,7 @@ jobs:
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
         tree ./device
+        export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch omni_${{ steps.var.outputs.device_code }}-eng 
         make clean
