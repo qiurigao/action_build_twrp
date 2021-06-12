@@ -26,7 +26,7 @@
 | `dt_remote`        | String  | 您使用设备树的存储库<sub>（如 `github/gitlab` ）</sub>               |
 | `dt_path`      | String  | 指示设备树本地保存位置<sub>（示例 `device/huawei/kiwi` ）</sub>      |
 | `device_code`  | String  | 您将要编译机型的机型代号                                     |
-| `use_omin_head`  | String  | 指示设备树的 `*.mk` 文件是否包含 `omni_` 头<sub>（例如你的 `*.mk` 文件如同 `omni_kiwi.mk` 则需开启此选项）</sub>                                     |
+| `use_omin_head`  | Boolean  | 指示设备树的 `*.mk` 文件是否包含 `omni_` 头<sub>（例如你的 `*.mk` 文件如同 `omni_kiwi.mk` 则需开启此选项）</sub>                                     |
 | `fix_frameworks`  | Boolean | 指示修复 Frameworks 的 Hwui 报错<sub>（注意，如果你的设备树中已经设定此项，则无需再次设定。尽管开了也没啥关系） </sub>                              |
 | `use_repair_manifest`  | Boolean | 是否下载修复环境<sub>（注意，此项目为后面三项的前置条件。此项为 `true` 后以下四项起效） </sub>                              |
 | `fix_product`  | Boolean | 指示是否修复无法找到设备的问题                               |
