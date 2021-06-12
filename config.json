@@ -4,15 +4,15 @@
   "git_username": "Voipsy",
   "git_email": "37921907+Voipsy@users.noreply.github.com",
   "use_own_dt": true,
-  "dt_url": "TeamWin/android_device_xiaomi_dipper",
+  "dt_url": "pinkdoge/twrp_device_huawei_kiwi",
   "dt_branch": "android-9.0",
   "dt_remote": "github",
-  "dt_path": "device/xiaomi/dipper",
-  "device_code": "dipper",
+  "dt_path": "device/huawei/kiwi",
+  "device_code": "kiwi",
   "use_omin_head": true,
-  "use_repair_manifest": false,
-  "fix_product": false,
-  "fix_misscom": false,
+  "use_repair_manifest": true,
+  "fix_product": true,
+  "fix_misscom": true,
   "fix_busybox": false,
-  "fix_branch": "android-7.1"
+  "fix_branch": "android-9.0"
 }
