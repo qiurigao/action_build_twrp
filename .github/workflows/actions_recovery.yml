@@ -40,6 +40,7 @@ jobs:
         echo "::set-output name=fix_misscom::$(jq -r '.fix_misscom' config.json)"
         echo "::set-output name=fix_busybox::$(jq -r '.fix_busybox' config.json)"
         echo "::set-output name=fix_branch::$(jq -r '.fix_branch' config.json)"
+        echo "::set-output name=fix_frameworks::$(jq -r '.fix_frameworks' config.json)"
         echo "::set-output name=date::$(date +%F)"
       id: var
       
@@ -48,6 +49,7 @@ jobs:
         mkdir ~/bin
         curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
         chmod a+x ~/bin/repo
+        export PATH=~/bin:$PATH
         
     - name: Initialize Repair Manifest
       if: steps.var.outputs.use_repair_manifest == 'true'
@@ -65,6 +67,10 @@ jobs:
         repo init --depth=1 -u ${{ steps.var.outputs.twrp_url }} -b ${{ steps.var.outputs.twrp_branch }}
         mkdir .repo/local_manifests
       id: pwd
+      
+    - name: Fix frameworks hwui_defaults
+      if: steps.var.outputs.fix_frameworks == 'true'
+      run: export ALLOW_MISSING_DEPENDENCIES=true
       
     - name: Fix the bug of missing common
       if: steps.var.outputs.use_repair_manifest == 'true' && steps.var.outputs.fix_misscom == 'true'
@@ -103,7 +109,6 @@ jobs:
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
         tree ./device
-        export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch ${{ steps.var.outputs.device_code }}-eng 
         make clean
