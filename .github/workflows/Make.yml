@@ -121,7 +121,8 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch ${{ steps.var.outputs.device_code }}-eng 
-        make clean & make recoveryimage -j$(nproc --all)
+        make clean
+        make recoveryimage -j$(nproc --all)
         
     - name: Start Building (Omni Mode)
       if: steps.var.outputs.use_omin_head == 'true'
@@ -132,7 +133,8 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch omni_${{ steps.var.outputs.device_code }}-eng 
-        make clean & make recoveryimage -j$(nproc --all)    
+        make clean
+        make recoveryimage -j$(nproc --all)    
         
     - name: Start Building (Customize Mode)
       if: steps.var.outputs.use_omin_head == 'true'
@@ -143,7 +145,8 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch {{ steps.var.outputs.customize_name }}
-        make clean & make recoveryimage -j$(nproc --all)
+        make clean
+        make recoveryimage -j$(nproc --all)
         
     - name: Start Building (Advanced Mode)
       if: steps.var.outputs.use_advanced_mode == 'true'
@@ -154,7 +157,8 @@ jobs:
         export ALLOW_MISSING_DEPENDENCIES=true
         source build/envsetup.sh
         lunch {{ steps.var.outputs.customize_name }}
-        make clean & make {{ steps.var.outputs.advanced_name }} -j$(nproc --all)
+        make clean
+        make {{ steps.var.outputs.advanced_name }} -j$(nproc --all)
 
       
     - name: Upload File to Release
