@@ -135,15 +135,15 @@ jobs:
         make clean & make recoveryimage -j$(nproc --all)    
         
     - name: Start Building (Customize Mode)
-      if: steps.var.outputs.use_customize_mode == 'true'
-       run: |
-         PATH=~/bin:$PATH
-         cd ${{ steps.pwd.outputs.pwd }}
-         tree ./device
-         export ALLOW_MISSING_DEPENDENCIES=true
-         source build/envsetup.sh
-         lunch {{ steps.var.outputs.customize_name }}
-         make clean & make recoveryimage -j$(nproc --all)
+      if: steps.var.outputs.use_omin_head == 'true'
+      run: |
+        PATH=~/bin:$PATH
+        cd ${{ steps.pwd.outputs.pwd }}
+        tree ./device
+        export ALLOW_MISSING_DEPENDENCIES=true
+        source build/envsetup.sh
+        lunch {{ steps.var.outputs.customize_name }}
+        make clean & make recoveryimage -j$(nproc --all)
         
     - name: Start Building (Advanced Mode)
       if: steps.var.outputs.use_advanced_mode == 'true'
