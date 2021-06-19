@@ -147,7 +147,7 @@ jobs:
         
     - name: Start Building (Advanced Mode)
       if: steps.var.outputs.use_advanced_mode == 'true'
-       run: |
+      run: |
         PATH=~/bin:$PATH
         cd ${{ steps.pwd.outputs.pwd }}
         tree ./device
