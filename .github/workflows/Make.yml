@@ -135,7 +135,7 @@ jobs:
         make clean & make recoveryimage -j$(nproc --all)    
         
     - name: Start Building (Customize Mode)
-      if: steps.var.outputs.use_customize_mode == ;true'
+      if: steps.var.outputs.use_customize_mode == 'true'
        run: |
          PATH=~/bin:$PATH
          cd ${{ steps.pwd.outputs.pwd }}
