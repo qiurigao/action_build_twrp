@@ -49,10 +49,6 @@ jobs:
         echo "::set-output name=fix_busybox::$(jq -r '.fix_busybox' config.json)"
         echo "::set-output name=fix_branch::$(jq -r '.fix_branch' config.json)"
         echo "::set-output name=use_omin_head::$(jq -r '.use_omin_head' config.json)"
-        echo "::set-output name=use_customize_mode::$(jq -r '.use_customize_mode' config.json)"
-        echo "::set-output name=customize_name::$(jq -r '.customize_name' config.json)"
-        echo "::set-output name=use_advanced_mode::$(jq -r '.use_advanced_mode' config.json)"
-        echo "::set-output name=advanced_name::$(jq -r '.advanced_name' config.json)"
         echo "::set-output name=date::$(date +%F)"
       id: var
       
@@ -134,32 +130,7 @@ jobs:
         source build/envsetup.sh
         lunch omni_${{ steps.var.outputs.device_code }}-eng 
         make clean
-        make recoveryimage -j$(nproc --all)    
-        
-    - name: Start Building (Customize Mode)
-      if: steps.var.outputs.use_omin_head == 'true'
-      run: |
-        PATH=~/bin:$PATH
-        cd ${{ steps.pwd.outputs.pwd }}
-        tree ./device
-        export ALLOW_MISSING_DEPENDENCIES=true
-        source build/envsetup.sh
-        lunch {{ steps.var.outputs.customize_name }}
-        make clean
-        make recoveryimage -j$(nproc --all)
-        
-    - name: Start Building (Advanced Mode)
-      if: steps.var.outputs.use_advanced_mode == 'true'
-      run: |
-        PATH=~/bin:$PATH
-        cd ${{ steps.pwd.outputs.pwd }}
-        tree ./device
-        export ALLOW_MISSING_DEPENDENCIES=true
-        source build/envsetup.sh
-        lunch {{ steps.var.outputs.customize_name }}
-        make clean
-        make {{ steps.var.outputs.advanced_name }} -j$(nproc --all)
-
+        make recoveryimage -j$(nproc --all)            
       
     - name: Upload File to Release
       uses: softprops/action-gh-release@v1

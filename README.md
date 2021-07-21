@@ -27,10 +27,6 @@
 | `dt_path`      | String  | 指示设备树本地保存位置<sub>（示例 `device/huawei/kiwi` ）</sub>      |
 | `device_code`  | String  | 您将要编译机型的机型代号                                     |
 | `use_omin_head`  | Boolean  | 指示设备树的 `*.mk` 文件是否包含 `omni_` 头<sub>（例如你的 `*.mk` 文件如同 `omni_kiwi.mk` 则需开启此选项）</sub>                                     |
-| `use_customize_mode`  | Boolean  | 使用自定义设备名编译 <sub>(在你的设备树使用的不寻常的设备名时可以启用)</sub>                                     |
-| `customize_name`  | String  | 自定义设备名称                                     |
-| `use_advanced_mode`  | Boolean  | 完全自定义的编译模式 <sub>(当你需要编译 `boot.img` 时，可以使用该模式，并在 `advanced_name` 输入 `bootimage`)</sub>                                    |
-| `advanced_name`  | String  | 自定义编译语句                                     |
 | `use_repair_manifest`  | Boolean | 是否下载修复环境<sub>（注意，此项目为后面三项的前置条件。此项为 `true` 后以下四项起效） </sub>                              |
 | `fix_product`  | Boolean | 指示是否修复无法找到设备的问题                               |
 | `fix_misscom`  | Boolean | 指示是否修复缺少 `device/qcom/common` 的问题                   |
