@@ -10,6 +10,11 @@
 	本项目是基于 <a href="https://github.com/Pinkdoge/actions_build_recovery">Pinkdoge/actions_build_recovery</a> 的二次修改（修复）版本
 </p>
 
+<p align="center">
+	2021/07/22 Vela 编译成功
+	<img src="https://img.mukewang.com/user/60f8488e0001932204580033.jpg"/>
+</p>
+
 ## 配置
 
 配置文件位于仓库根目录 [Config.json](config.json)
