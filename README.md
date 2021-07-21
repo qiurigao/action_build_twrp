@@ -12,8 +12,12 @@
 
 <p align="center">
 	2021/07/22 Vela 编译成功
-	<img src="https://img.mukewang.com/user/60f8488e0001932204580033.jpg"/>
 </p>
+
+<p align="center">
+	<a href="https://imgtu.com/i/Ww62fe"><img src="https://z3.ax1x.com/2021/07/22/Ww62fe.png" alt="Vela" border="0" /></a>
+</p>
+
 
 ## 配置
 
