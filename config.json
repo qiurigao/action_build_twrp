@@ -1,18 +1,18 @@
 {
   "twrp_url": "https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni",
-  "twrp_branch": "twrp-7.1",
+  "twrp_branch": "twrp-10.0",
   "git_username": "voipsy",
   "git_email": "37921907+voipsy@users.noreply.github.com",
   "use_own_dt": true,
-  "dt_url": "wt88047-treble/android_device_wingtech_wt88047-twrp",
-  "dt_branch": "android-7.1",
+  "dt_url": "voipsy/twrp_device_xiaomi_vela",
+  "dt_branch": "main",
   "dt_remote": "github",
-  "dt_path": "device/wingtech/wt88047",
-  "device_code": "wt88047",
+  "dt_path": "device/xiaomi/vela",
+  "device_code": "vela",
   "use_omin_head": true,
   "use_repair_manifest": true,
   "fix_product": true,
   "fix_misscom": true,
   "fix_busybox": false,
-  "fix_branch": "android-7.1"
+  "fix_branch": "android-10.0"
 }
