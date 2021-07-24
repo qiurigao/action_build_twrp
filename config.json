@@ -10,9 +10,9 @@
   "dt_path": "device/xiaomi/vela",
   "device_code": "vela",
   "use_omin_head": true,
-  "use_repair_manifest": true,
-  "fix_product": true,
-  "fix_misscom": true,
+  "use_repair_manifest": false,
+  "fix_product": false,
+  "fix_misscom": false,
   "fix_busybox": false,
   "fix_branch": "android-10.0"
 }
