@@ -4,7 +4,7 @@
   "git_username": "voipsy",
   "git_email": "37921907+voipsy@users.noreply.github.com",
   "use_own_dt": true,
-  "dt_url": "azwhikaru/twrp_device_xiaomi_FYJ01QP",
+  "dt_url": "TingyiChen/android_device_xiaomi_FYJ01QP-twrp",
   "dt_branch": "android-8.1",
   "dt_remote": "github",
   "dt_path": "device/xiaomi/FYJ01QP",
